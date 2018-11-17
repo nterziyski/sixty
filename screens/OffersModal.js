@@ -33,7 +33,7 @@ export default class OffersModal extends React.Component {
 
   render() {
     const { offers } = this.state
-    return (<View style={{ flex: 1, marginTop: 40, paddingHorizontal: 20, paddingVertical: 10, backgroundColor: '#FF5F00' }}>
+    return (<View style={{ flex: 1, paddingTop: 50, paddingHorizontal: 20, paddingBottom: 10, backgroundColor: '#FF5F00' }}>
       <Button color="#191919" style={{ padding: 5 }} onPress={() => this.props.navigation.goBack()} title="Back to Map" />
       <FlatList
         data={offers}
