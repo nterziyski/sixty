@@ -8,6 +8,7 @@ import {
   Dimensions,
   FlatList
 } from 'react-native';
+import { Toast } from 'native-base'
 import { ScrollView } from 'react-native-gesture-handler';
 
 const { height } = Dimensions.get('window')
@@ -29,6 +30,13 @@ export default class OffersModal extends React.Component {
 
   bookCar = car => {
     this.props.navigation.goBack()
+    Toast.show({
+      text: "Booking successfull!",
+      textStyle: { color: "#FF5F00" },
+      buttonText: "OK",
+      duration: 4000,
+      position: 'top'
+    })
   }
 
   render() {
