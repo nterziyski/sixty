@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableOpacity, View, Text, Image } from 'react-native'
 
-export default class MarkerIcon extends React.Component {
+export default class MarkerIcon extends React.PureComponent {
     shouldComponentUpdate(nextProps, nextState) {
         return false
     }
