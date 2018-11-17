@@ -26,7 +26,7 @@ export default class MapScreen extends React.Component {
   }
   
   openMenu = () => {
-    Alert.alert('1')
+    Alert.alert('Sneaky, Sneaky!')
   }
 
   render() {
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     top: 50,
     right: 10,
     zIndex: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.75)',
     paddingHorizontal: 10,
-    borderRadius: 3,
+    borderRadius: 5,
   }
 });
