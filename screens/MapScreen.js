@@ -59,7 +59,7 @@ export default class MapScreen extends React.Component {
             coordinate={marker.coordinates}
             title={marker.title}
             description={marker.subtitle}
-            onPress={() => navigation.navigate('OffersModal')}
+            onPress={() => navigation.navigate('OffersModal', { stationDetails: marker })}
             >
             <MarkerIcon/>
             </MapView.Marker>
