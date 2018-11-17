@@ -2,13 +2,12 @@ import React from 'react';
 import {
   Text,
   View,
-  Button,
   Alert,
   Image,
   Dimensions,
   FlatList
 } from 'react-native';
-import { Toast } from 'native-base'
+import { Toast, Button } from 'native-base'
 import { ScrollView } from 'react-native-gesture-handler';
 
 const { height } = Dimensions.get('window')
@@ -42,7 +41,7 @@ export default class OffersModal extends React.Component {
   render() {
     const { offers } = this.state
     return (<View style={{ flex: 1, paddingTop: 50, paddingHorizontal: 20, paddingBottom: 10, backgroundColor: '#FF5F00' }}>
-      <Button color="#191919" style={{ padding: 5 }} onPress={() => this.props.navigation.goBack()} title="Back to Map" />
+      <Button transparent style={{ padding: 5 }} onPress={() => this.props.navigation.goBack()} block><Text>Back to Map</Text></Button>
       <FlatList
         data={offers}
         renderItem={({item}) => <React.Fragment>
@@ -51,7 +50,7 @@ export default class OffersModal extends React.Component {
             <Image source={{ uri: item.vehicleGroupInfo.modelExample.imageUrl}} style={{width: 200, height: 100}} />
             <View style={{ flexDirection: 'column', padding: 10, justifyContent: 'center', flex: 1, alignItems: 'center' }}>
               <Text style={{ fontSize: 20 }}>{`${item.prices.dayPrice.amount.value} ${item.prices.dayPrice.amount.currency}`}</Text>
-              <Button color="#191919" title="Book" onPress={this.bookCar} />
+              <Button transparent block color="#191919" onPress={this.bookCar}><Text style={{ fontSize: 20, fontWeight: 'bold' }}>Book</Text></Button>
             </View>
           </View>
         </React.Fragment>}
