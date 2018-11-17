@@ -1,7 +1,11 @@
 import React from 'react'
 import { TouchableOpacity, View, Text, Image } from 'react-native'
 
-export default class MarkerIcon extends React.PureComponent {
+export default class MarkerIcon extends React.Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.hasFavoriteCars !== this.props.hasFavoriteCars
+    }
+
     render() {
         var styles = {
             width: 40,

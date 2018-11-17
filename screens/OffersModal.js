@@ -19,7 +19,7 @@ export default class OffersModal extends React.Component {
 
   state = {}
 
-  favouritesStore = new FavoriteStore()
+  favouritesStore = FavoriteStore
 
   componentDidMount() {    
     const stationDetails = this.props.navigation.getParam('stationDetails')
