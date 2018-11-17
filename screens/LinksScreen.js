@@ -5,23 +5,19 @@ import { StyleSheet } from 'react-native';
 export default class LinksScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-  }
+    this.state = {
+      region: {
+        latitude: 48.35397931,
+        longitude: 11.78138889,
+        latitudeDelta: 0.1122,
+        longitudeDelta: 0.1121,
+      }
+    }
+    }
 
   static navigationOptions = {
     title: 'Links',
   };
-
-  getInitialState() {
-    return {
-      region: {
-        latitude: 48.35397931,
-        longitude: 11.78138889,
-        latitudeDelta: 0.002922,
-        longitudeDelta: 0.00221,
-      },
-    };
-  }
   
   onRegionChange = (region) => {
     this.setState({ region });
