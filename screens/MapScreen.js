@@ -2,6 +2,7 @@ import React from 'react';
 import { MapView } from 'expo' 
 import { StyleSheet, View, Alert } from 'react-native';
 import MarkerIcon from '../components/MarkerIcon'
+import FavoriteStore from '../components/FavoriteStore';
 
 export default class MapScreen extends React.Component {
   constructor(props) {
@@ -22,6 +23,8 @@ export default class MapScreen extends React.Component {
     title: 'Map',
     header: null,
   };
+
+  favouritesStore = FavoriteStore
 
   componentDidMount() {
     var url = `https://web-api.orange.sixt.com/v1/locations/geo?latitude=${this.state.region.latitude}&longitude=${this.state.region.longitude}`
@@ -59,7 +62,7 @@ export default class MapScreen extends React.Component {
             description={marker.subtitle}
             onPress={() => navigation.navigate('OffersModal', { stationDetails: marker, onBook: this.updateAfterBook })}
             >
-            <MarkerIcon/>
+            <MarkerIcon hasFavoriteCars={ this.favouritesStore.store.length > 0 && marker.id == "S_11"}/>
             </MapView.Marker>
           })}
           </MapView>

@@ -1,4 +1,4 @@
-export default class FavoriteStore {
+class FavoriteStore {
     static instance;
 
     constructor(){
@@ -18,3 +18,5 @@ export default class FavoriteStore {
         
     }
 }
+const store = new FavoriteStore()
+export default store
