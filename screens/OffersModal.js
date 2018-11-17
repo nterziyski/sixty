@@ -33,10 +33,11 @@ export default class OffersModal extends React.Component {
 
   render() {
     const { offers } = this.state
-    return (<View style={{ flex: 1, marginTop: 40, padding: 20, backgroundColor: '#FF5F00' }}>
+    return (<View style={{ flex: 1, marginTop: 40, paddingHorizontal: 20, paddingVertical: 10, backgroundColor: '#FF5F00' }}>
+      <Button color="#191919" style={{ padding: 5 }} onPress={() => this.props.navigation.goBack()} title="Back to Map" />
       <FlatList
         data={offers}
-        renderItem={({item}) => <React.Fragment key={item.id}>
+        renderItem={({item}) => <React.Fragment>
           <Text style={{ fontSize: 20, marginBottom: 5 }}>{item.carGroupInfo.modelExample.name}</Text>
           <View key={item.id} style={{ width: '100%', height: 100, marginBottom: 20, flexDirection: "row" }}>
             <Image source={{ uri: item.vehicleGroupInfo.modelExample.imageUrl}} style={{width: 200, height: 100}} />
@@ -46,7 +47,7 @@ export default class OffersModal extends React.Component {
             </View>
           </View>
         </React.Fragment>}
-        ListEmptyComponent={<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: height - 100 }}><Text style={{ fontSize: 30, fontWeight: 'bold' }}>Fetching offers...</Text></View>}
+        ListEmptyComponent={<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: height - 120 }}><Text style={{ fontSize: 30, fontWeight: 'bold' }}>Fetching offers...</Text></View>}
       />
       </View>
     )
