@@ -35,8 +35,9 @@ export default class MapScreen extends React.Component {
   }
   
   onRegionChange = (region) => {
-    this.setState({ region });
+    // this.setState({ region });
   }
+
   openMenu = () => {
     Alert.alert('Sneaky, Sneaky!')
   }
@@ -50,8 +51,7 @@ export default class MapScreen extends React.Component {
         </View>
         <MapView
           style={{ flex: 1 }}
-          region={this.state.region}
-          onRegionChange={this.onRegionChange}>
+          region={this.state.region}>
           { this.state.sixtMarkers && this.state.sixtMarkers.map( marker => {
             return <MapView.Marker
             key={marker.id}
