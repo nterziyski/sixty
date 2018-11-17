@@ -28,7 +28,6 @@ export default class MapScreen extends React.Component {
 
   componentDidMount() {
     var url = `https://web-api.orange.sixt.com/v1/locations/geo?latitude=${this.state.region.latitude}&longitude=${this.state.region.longitude}`
-    console.log(url)
     fetch(url)
     .then(response => response.json())
     .then(data => this.setState({ sixtMarkers: data }));
