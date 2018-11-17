@@ -30,8 +30,10 @@ export default class OffersModal extends React.Component {
   }
 
   bookCar = car => {
+    const onBook = this.props.navigation.getParam('onBook')
     this.favouritesStore.addCarToFavourites(car)
-    this.props.navigation.goBack()
+    this.props.navigation.navigate("MapStack", { update: true })
+    onBook()
     Toast.show({
       text: "Booking successfull!",
       textStyle: { color: "#FF5F00" },
