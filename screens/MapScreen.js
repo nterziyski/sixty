@@ -43,6 +43,7 @@ export default class MapScreen extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props
     const { viewStyles, iconContainer } = styles
     return (
       <View style={viewStyles}>
@@ -58,6 +59,7 @@ export default class MapScreen extends React.Component {
             coordinate={marker.coordinates}
             title={marker.title}
             description={marker.subtitle}
+            onPress={() => navigation.navigate('OffersModal')}
             >
             <MarkerIcon/>
             </MapView.Marker>
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({
     top: 50,
     right: 10,
     zIndex: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.75)',
+    backgroundColor: 'rgb(0, 0, 0)',
     paddingHorizontal: 10,
     borderRadius: 5,
   }
