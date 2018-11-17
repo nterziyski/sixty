@@ -44,12 +44,9 @@ export default class MapScreen extends React.Component {
 
   render() {
     const { navigation } = this.props
-    const { viewStyles, iconContainer } = styles
+    const { viewStyles } = styles
     return (
       <View style={viewStyles}>
-        <View style={iconContainer} >
-          <Ionicons onPress={this.openMenu} name="md-menu" size={32} color={Colors.sixtyOrange} />
-        </View>
         <MapView
           style={{ flex: 1 }}
           region={this.state.region}>
@@ -80,13 +77,4 @@ const styles = StyleSheet.create({
     position: 'relative',
     flex: 1
   },
-  iconContainer: {
-    position: 'absolute',
-    top: 50,
-    right: 10,
-    zIndex: 10,
-    backgroundColor: 'rgb(0, 0, 0)',
-    paddingHorizontal: 10,
-    borderRadius: 5,
-  }
 });
