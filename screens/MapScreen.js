@@ -19,7 +19,7 @@ export default class MapScreen extends React.Component {
 
       sixtMarkers: null
     }
-    }
+  }
 
   static navigationOptions = {
     title: 'Map',
