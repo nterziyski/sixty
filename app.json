@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "hackatum",
+    "name": "Sixty",
     "description": "Sixty",
-    "slug": "hackatum",
+    "slug": "Sixty",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],
