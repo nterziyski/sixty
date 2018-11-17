@@ -1,22 +1,38 @@
 import React from 'react';
 import { MapView } from 'expo' 
-import { ScrollView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default class LinksScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   static navigationOptions = {
     title: 'Links',
   };
 
+  getInitialState() {
+    return {
+      region: {
+        latitude: 48.35397931,
+        longitude: 11.78138889,
+        latitudeDelta: 0.002922,
+        longitudeDelta: 0.00221,
+      },
+    };
+  }
+  
+  onRegionChange = (region) => {
+    this.setState({ region });
+  }
+  
   render() {
     return (
       <MapView
         style={{ flex: 1 }}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
+        region={this.state.region}
+        onRegionChange={this.onRegionChange}
         customMapStyle={mapStyle}
       />
     );
