@@ -13,15 +13,30 @@ import FavoriteStore from '../components/FavoriteStore'
 const { height } = Dimensions.get('window')
 
 export default class Booked extends React.Component {
-  static navigationOptions = {
+ static navigationOptions = {
     header: null,
   };
 
   state = {
-    unlockedCars: []
+    unlockedCars: [],
+    favouritesStore: FavoriteStore
   }
 
-  favouritesStore = FavoriteStore
+  componentDidMount() {
+    // console.log(this.state)
+    this.props.navigation.addListener('didFocus', this.componentDidFocus)
+    this.props.navigation.setParams({
+      onTabFocus: this.handleTabFocus
+    });
+  }
+
+  handleTabFocus = () => {
+    this.forceUpdate()
+  }
+
+  componentDidFocus = () => {
+    this.forceUpdate()
+  }
 
   unlockCar = car => {
     const onBook = this.props.navigation.getParam('onBook')
@@ -57,7 +72,7 @@ export default class Booked extends React.Component {
   }
 
   render() {
-    const offers = this.favouritesStore.store
+    const offers = this.state.favouritesStore.store
     return (
     <View style={{ flex: 1, paddingTop: 50, paddingHorizontal: 20, paddingBottom: 10, backgroundColor: '#FF5F00' }}>
       <FlatList
@@ -72,6 +87,7 @@ export default class Booked extends React.Component {
             </View>
           </View>
         </React.Fragment>}
+        ListEmptyComponent={<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}><Text style={{ fontSize: 30, fontWeight: 'bold' }}>No cars booked.</Text></View>}
       />
       </View>
     )
