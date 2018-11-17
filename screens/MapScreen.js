@@ -1,10 +1,7 @@
 import React from 'react';
 import { MapView } from 'expo' 
 import { StyleSheet, View, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import MarkerIcon from '../components/MarkerIcon'
-
-import Colors from '../constants/Colors';
 
 export default class MapScreen extends React.Component {
   constructor(props) {

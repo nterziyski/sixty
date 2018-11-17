@@ -8,7 +8,7 @@ import {
   FlatList
 } from 'react-native';
 import { Toast, Button } from 'native-base'
-import { ScrollView } from 'react-native-gesture-handler';
+import FavoriteStore from '../components/FavoriteStore'
 
 const { height } = Dimensions.get('window')
 
@@ -19,6 +19,8 @@ export default class OffersModal extends React.Component {
 
   state = {}
 
+  favouritesStore = new FavoriteStore()
+
   componentDidMount() {    
     const stationDetails = this.props.navigation.getParam('stationDetails')
     const url = `https://web-api.orange.sixt.com/v1/rentaloffers/offers?pickupStation=${stationDetails.id}&returnStation=${stationDetails.id}&pickupDate=2018-12-17T12:00:00&returnDate=2018-12-19T09:00:00&areaCode=de&vehicleType=car`
@@ -28,6 +30,7 @@ export default class OffersModal extends React.Component {
   }
 
   bookCar = car => {
+    this.favouritesStore.addCarToFavourites(car)
     this.props.navigation.goBack()
     Toast.show({
       text: "Booking successfull!",

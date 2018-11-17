@@ -1,21 +1,20 @@
-let favoriteStore = null;
+export default class FavoriteStore {
+    static instance;
 
-export class FavoriteStore {
-    constructor() {
+    constructor(){
+        if (this.instance){
+            return this.instance;
+        }
+
         this.store = [];
+        this.instance = this;
     }
 
-   static getStore() {
-    if (! favoriteStore)
-      favoriteStore = new FavoriteStore();
-    return favoriteStore;
-  }
+    addCarToFavourites(car) {
+        this.store.push(car)
+    }
 
-  addFavorite(car) {
-      this.store.push(car)
-  }
-
-  hasFavorite(car) {
-      
-  }
+    hasFavorite(car) {
+        
+    }
 }
