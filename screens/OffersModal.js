@@ -55,7 +55,7 @@ export default class OffersModal extends React.Component {
             <Image source={{ uri: item.vehicleGroupInfo.modelExample.imageUrl}} style={{width: 200, height: 100}} />
             <View style={{ flexDirection: 'column', padding: 10, justifyContent: 'center', flex: 1, alignItems: 'center' }}>
               <Text style={{ fontSize: 20 }}>{`${item.prices.dayPrice.amount.value} ${item.prices.dayPrice.amount.currency}`}</Text>
-              <Button transparent block color="#191919" onPress={this.bookCar}><Text style={{ fontSize: 20, fontWeight: 'bold' }}>Book</Text></Button>
+              <Button transparent block color="#191919" onPress={() => this.bookCar(item)}><Text style={{ fontSize: 20, fontWeight: 'bold' }}>Book</Text></Button>
             </View>
           </View>
         </React.Fragment>}
