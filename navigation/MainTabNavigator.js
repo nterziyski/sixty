@@ -6,11 +6,12 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import MeScreen from '../screens/MeScreen';
 
 import Colors from '../constants/Colors';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Me: MeScreen,
 });
 
 HomeStack.navigationOptions = {
