@@ -14,7 +14,9 @@ export default class MapScreen extends React.Component {
         longitude: 11.78138889,
         latitudeDelta: 0.1122,
         longitudeDelta: 0.1121,
-      }
+      },
+
+      sixtMarkers: null
     }
     }
 
@@ -22,11 +24,18 @@ export default class MapScreen extends React.Component {
     title: 'Map',
     header: null,
   };
+
+  componentDidMount() {
+    var url = `https://web-api.orange.sixt.com/v1/locations/geo?latitude=${this.state.region.latitude}&longitude=${this.state.region.longitude}`
+    console.log(url)
+    fetch(url)
+    .then(response => response.json())
+    .then(data => this.setState({ sixtMarkers: data }));
+  }
   
   onRegionChange = (region) => {
     this.setState({ region });
   }
-  
   openMenu = () => {
     Alert.alert('Sneaky, Sneaky!')
   }
@@ -41,8 +50,16 @@ export default class MapScreen extends React.Component {
         <MapView
           style={{ flex: 1 }}
           region={this.state.region}
-          onRegionChange={this.onRegionChange}
-        />
+          onRegionChange={this.onRegionChange}>
+          { this.state.sixtMarkers && this.state.sixtMarkers.map( marker => {
+            return <MapView.Marker
+            key={marker.id}
+            coordinate={marker.coordinates}
+            title={marker.title}
+            description={marker.subtitle}
+            />
+          })}
+          </MapView>
       </View>
     );
   }
