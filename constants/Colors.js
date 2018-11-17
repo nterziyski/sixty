@@ -13,5 +13,5 @@ export default {
   noticeText: '#fff',
   sixtyOrange: '#FF5F00',
   sixtyBlack: '#191919',
-  sixtyWhite: '#FFFFFF',
+  sixtyWhite: '#f7f9fc',
 };
