@@ -14,12 +14,12 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Me',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
-        'ios-home'
+        'md-person'
       }
     />
   ),
@@ -59,6 +59,7 @@ export default createBottomTabNavigator({
   SettingsStack,
 }, 
 {
+  initialRouteName: 'MapStack',
   tabBarOptions: {
     activeTintColor: Colors.sixtyOrange,
     labelStyle: {
