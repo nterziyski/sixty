@@ -3,6 +3,8 @@ import { MapView } from 'expo'
 import { StyleSheet, View, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import Colors from '../constants/Colors';
+
 export default class MapScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +36,7 @@ export default class MapScreen extends React.Component {
     return (
       <View style={viewStyles}>
         <View style={iconContainer} >
-          <Ionicons onPress={this.openMenu} name="md-menu" size={32} color="black" />
+          <Ionicons onPress={this.openMenu} name="md-menu" size={32} color={Colors.sixtyOrange} />
         </View>
         <MapView
           style={{ flex: 1 }}

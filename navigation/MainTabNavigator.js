@@ -7,6 +7,8 @@ import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
+import Colors from '../constants/Colors';
+
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
@@ -17,9 +19,7 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+        'ios-home'
       }
     />
   ),
@@ -57,4 +57,16 @@ export default createBottomTabNavigator({
   HomeStack,
   MapStack,
   SettingsStack,
-});
+}, 
+{
+  tabBarOptions: {
+    activeTintColor: Colors.sixtyOrange,
+    labelStyle: {
+      fontSize: 12,
+    },
+    style: {
+      backgroundColor: Colors.sixtyBlack,
+    },
+  }
+}
+);
