@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     position: 'absolute',
-    top: 10,
+    top: 50,
     right: 10,
     zIndex: 10,
     backgroundColor: 'rgba(255, 255, 255, 0.6)',
