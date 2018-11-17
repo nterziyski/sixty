@@ -15,9 +15,11 @@ import Colors from '../constants/Colors'
 import { Container, Header, Content, Accordion } from "native-base";
 
 const dataArray = [
-  { title: "First Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
+  { title: "Driver Profile", content: "" },
+  { title: "Scheduled Cars ", content: "Lorem ipsum dolor sit amet" },
+  { title: "Your favorites", content: "Lorem ipsum dolor sit amet" },
+  { title: "Payment Options", content: "Lorem ipsum dolor sit amet" },
+  { title: "Your favorites", content: "Lorem ipsum dolor sit amet" },
 ];
 
 export default class MeScreen extends React.Component {
@@ -40,13 +42,14 @@ export default class MeScreen extends React.Component {
                 <Text style={styles.welcomeText}> You own 1345 sixt-coins</Text>
             </View>
           </View>
-          <Content padder>
-            <Accordion
+
+          <View style={styles.tabBarInfoContainer}>
+          <Accordion
                dataArray={dataArray}
                headerStyle={{ backgroundColor: Colors.sixtyOrange }}
                contentStyle={{ backgroundColor: Colors.sixtyWhite }}
              />
-           </Content>
+        </View>
         </ScrollView>
       </View>
           )
@@ -87,8 +90,12 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textAlign: 'left',
   },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 5,
+  tabBarInfoContainer: {
+    shadowColor: Colors.sixtyBlack,
+    shadowOffset: { height: -5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    backgroundColor: Colors.sixtyWhite,
+    paddingVertical: 15,
   },
 });
