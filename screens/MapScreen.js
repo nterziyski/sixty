@@ -33,14 +33,6 @@ export default class MapScreen extends React.Component {
     .then(data => this.setState({ sixtMarkers: data }));
   }
 
-  onRegionChange = (region) => {
-    // this.setState({ region });
-  }
-
-  openMenu = () => {
-    Alert.alert('Sneaky, Sneaky!')
-  }
-
   updateAfterBook = () => {
     this.forceUpdate()
   }
@@ -61,7 +53,7 @@ export default class MapScreen extends React.Component {
             description={marker.subtitle}
             onPress={() => navigation.navigate('OffersModal', { stationDetails: marker, onBook: this.updateAfterBook })}
             >
-            <MarkerIcon hasFavoriteCars={ this.favouritesStore.store.length > 0 && marker.id == "S_11"}/>
+            <MarkerIcon hasFavoriteCars={this.favouritesStore.store.length > 0 && marker.id == "S_11"}/>
             </MapView.Marker>
           })}
           </MapView>
