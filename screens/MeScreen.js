@@ -15,11 +15,10 @@ import Colors from '../constants/Colors'
 import { Container, Header, Content, Accordion } from "native-base";
 
 const dataArray = [
-  { title: "Driver Profile", content: "" },
-  { title: "Scheduled Cars ", content: "Lorem ipsum dolor sit amet" },
-  { title: "Your favorites", content: "Lorem ipsum dolor sit amet" },
-  { title: "Payment Options", content: "Lorem ipsum dolor sit amet" },
-  { title: "Your favorites", content: "Lorem ipsum dolor sit amet" },
+  { title: "Driver Profile", content: "Inclination: 45°\n  \n Mirror-1: 23 \n Mirror-2: 9 \n Mirror-3: 26 \n \n Distance: 4 \n  \n Favorite Radio Station: Bayern 3" },
+  { title: "Scheduled Cars ", content: "VW Polo scheduled weekly until June 2019" },
+  { title: "Your favorites", content: "No cars or rides were bookmarked" },
+  { title: "Payment Options", content: "Sixt app is integrated with your Apple pay." },
 ];
 
 export default class MeScreen extends React.Component {
@@ -49,6 +48,14 @@ export default class MeScreen extends React.Component {
                headerStyle={{ backgroundColor: Colors.sixtyOrange }}
                contentStyle={{ backgroundColor: Colors.sixtyWhite }}
              />
+        </View>
+        <View style={styles.questionUser}> 
+            <Text style={styles.questionText}> How good was your experience with your last Sixt car? </Text>
+            <View style={styles.emoticon}>
+              <View style={styles.emoticonBox}><Text style={styles.emoticonText}>🤨</Text></View>
+              <View style={styles.emoticonBox}><Text style={styles.emoticonText}>😌</Text></View>
+              <View style={styles.emoticonBox}><Text style={styles.emoticonText}>😁</Text></View>
+            </View>
         </View>
         </ScrollView>
       </View>
@@ -98,4 +105,32 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.sixtyWhite,
     paddingVertical: 15,
   },
+  questionUser: {
+      textAlign: 'center',
+      paddingLeft: 'auto',
+      paddingRight: 'auto',
+      flexDirection: 'column',
+      flex: 1,
+      padding: 10,
+  },
+  emoticon: {
+     flexDirection: 'row',
+     flex: 1,
+     justifyContent: 'center',
+  },
+  emoticonBox: {
+      flex: 1,
+  },
+  questionText: {
+    fontSize: 18,
+    color: Colors.sixtyBlack,
+    lineHeight: 20,
+  },
+  emoticonBox: {
+      width: 100,
+      height: 100,
+  },
+  emoticonText: {
+      fontSize: 50,
+  }
 });
