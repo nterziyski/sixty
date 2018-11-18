@@ -7,10 +7,13 @@ import {
   Text,
   TouchableOpacity,
   View,
+  FlatList,
+  Button
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 import Colors from '../constants/Colors'
+import FavoriteStore from '../components/FavoriteStore'
 
 import { Container, Header, Content, Accordion } from "native-base";
 
@@ -25,6 +28,28 @@ export default class MeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  favouritesStore = FavoriteStore
+
+  _renderContent = (obj) => {
+    if (obj.content == "No cars or rides were bookmarked" && this.favouritesStore.store.length) {
+      return (
+      <FlatList
+      data={this.favouritesStore.store}
+      renderItem={({item}) => <React.Fragment>
+        <Text style={{ fontSize: 20, marginBottom: 5 }}>{item.carGroupInfo.modelExample.name}</Text>
+        <View key={item.id} style={{ width: '100%', height: 100, marginBottom: 20, flexDirection: "row" }}>
+          <Image source={{ uri: item.vehicleGroupInfo.modelExample.imageUrl}} style={{width: 200, height: 100}} />
+          <View style={{ flexDirection: 'column', padding: 10, justifyContent: 'center', flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontSize: 20 }}>{`${item.prices.dayPrice.amount.value} ${item.prices.dayPrice.amount.currency}`}</Text>
+          </View>
+        </View>
+      </React.Fragment>}
+    />)
+    } else {
+      return <Text>{`${obj.content}`}</Text>
+    }
+  }
 
   render() {
     return (
@@ -47,6 +72,7 @@ export default class MeScreen extends React.Component {
                dataArray={dataArray}
                headerStyle={{ backgroundColor: Colors.sixtyOrange }}
                contentStyle={{ backgroundColor: Colors.sixtyWhite }}
+               renderContent={this._renderContent}
              />
         </View>
         <View style={styles.questionUser}> 
